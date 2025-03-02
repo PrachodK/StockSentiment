@@ -1,38 +1,329 @@
-.App {
+/* RESET & BASE */
+/* You can do this in App.css or index.css, etc. */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(160deg, #f0f9ff, #fdfcfa);
+  color: #333;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background-color: #ffffffcc; /* Slightly transparent white */
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #008060; /* A nice green */
+  text-decoration: none;
+}
+
+.nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: #000;
+}
+
+.dashboard-btn {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.dashboard-btn:hover {
+  background-color: #f3f3f3;
+}
+
+/* MAIN CONTENT */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* UTILITY: Center container */
+.center-container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  color: #fff;
+  margin: 0.25rem;
+}
+
+.btn-green {
+  background-color: #28a745;
+}
+
+.btn-green:hover {
+  background-color: #218838;
+}
+
+.btn-red {
+  background-color: #dc3545;
+}
+
+.btn-red:hover {
+  background-color: #c82333;
+}
+
+.btn-outline {
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.btn-outline:hover {
+  background-color: #f2f2f2;
+}
+
+/* CARD STYLE */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* HEADINGS */
+h1, h2, h3 {
+  margin-bottom: 1rem;
+}
+
+/* PARTNER LOGOS */
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.partner-logo {
+  background: #f7f7f7;
+  border: 1px solid #eee;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #555;
+}
+
+/* STOCKS CHART WRAPPER */
+.chart-container {
+  width: 100%;
+  max-width: 700px;
+  height: 400px;
+  margin: 0 auto;
+}
+/* Horizontal scrolling for partner logos */
+.partner-logos-scroll {
+  display: flex;
+  overflow-x: auto; /* Allows horizontal scroll */
+  gap: 1rem;        /* Spacing between logos */
+  padding: 1rem 0;  /* Top & bottom padding */
+  scroll-behavior: smooth;
+}
+
+/* Ensure each partner logo is sized consistently */
+.partner-logo {
+  min-width: 120px;
+  flex: 0 0 auto;   /* Don’t shrink; each stays its own width */
+  background: #f7f7f7;
+  border: 1px solid #eee;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #555;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* GIFs container: multi-column layout (wraps on new lines) */
+.gifs-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center; /* Center them horizontally */
+  margin-top: 1rem;
+}
+
+/* Each GIF box */
+.gif-box {
+  width: 220px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gif-box img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+/* Horizontal scrolling for partner logos */
+.partner-logos-scroll {
+  display: flex;
+  overflow-x: auto; /* Allows horizontal scroll */
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+}
+
+/* Ensure each partner logo is sized consistently */
+.partner-logo {
+  min-width: 120px;
+  flex: 0 0 auto; /* Don’t shrink; each stays its own width */
+  background: #f7f7f7;
+  border: 1px solid #eee;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+}
+
+/* GIFs container */
+.gifs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center; /* Center them horizontally */
+  margin-top: 1rem;
+}
+
+.gif-box {
+  width: 220px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gif-box img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* Pricing Plans */
+.pricing-plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.plan {
+  background-color: #fff;
+  flex: 0 1 250px;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.plan:hover {
+  transform: translateY(-4px);
+}
+
+.plan h3 {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.plan-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.plan-price span {
+  font-size: 1rem;
+  color: #666;
+}
+
+.plan ul {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.plan ul li {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.plan .btn {
+  display: block;
+  margin: 0 auto; /* Center the button */
+  text-align: center;
+}
+
+/* Tool in Action Visual */
+.tool-visual {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
