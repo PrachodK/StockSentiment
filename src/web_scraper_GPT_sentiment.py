@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import csv
+import openai
+from getpass import getpass
 
 company = input("Enter what company you want results about: ").lower()
 
@@ -27,3 +29,17 @@ if (valid):
     print(headline.get_text(strip=True))
 else:
   print("This is not a valid company")
+
+#####
+
+openai.api_key = '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'
+
+response = openai.ChatCompletion.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "system", "content": f"Analyze the headlines based off of how positive the headline is to the {company}'s stock. Disregard any news not related to {company}. Summarize the positivity/negativity of each article and give each a rating from 0 (most negative) to 10 (most positive). Only focus on economic-related issues. Use tenths as needed. List the average rating first, then show your summary."},
+        {"role": "user", "content": f"{articles[0]}, {articles[1]}, {articles[2]}, {articles[3]}, {articles[4]}, {articles[5]}, {articles[6]}, {articles[7]}, {articles[8]}, {articles[9]}"}
+    ]
+)
+
+print(response['choices'][0]['message']['content'].strip())
