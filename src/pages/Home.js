@@ -1,49 +1,44 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-const topStocks = [
-  { symbol: "AAPL", price: "$175.32", change: "+1.45%" },
-  { symbol: "TSLA", price: "$217.61", change: "-2.10%" },
-  { symbol: "AMZN", price: "$132.50", change: "+0.67%" },
-  { symbol: "GOOGL", price: "$2850.23", change: "-1.22%" },
-  { symbol: "MSFT", price: "$352.15", change: "+0.88%" },
-  { symbol: "NFLX", price: "$410.52", change: "-0.78%" },
-  { symbol: "NVDA", price: "$998.42", change: "+2.56%" },
-  { symbol: "META", price: "$311.24", change: "-1.12%" },
-  { symbol: "AMD", price: "$136.48", change: "+1.98%" },
-  { symbol: "SPY", price: "$450.72", change: "+0.45%" },
-];
+function StockList() {
+    const [stocks, setStocks] = useState([]);
 
-export const Home = () => {
-  return (
-    <div className="text-center p-10">
-      <h1 className="text-4xl font-bold text-gray-800">Stock Sentiment Analysis</h1>
-      <p className="text-gray-500 mt-2">Analyze market sentiment based on real-time data.</p>
+    useEffect(() => {
+        fetch("http://localhost:5000/api/stocks")
+            .then(res => res.json())
+            .then(data => setStocks(data))
+            .catch(err => console.error("Error fetching stocks:", err));
+    }, []);
 
-      <div className="mt-6">
-        <h2 className="text-2xl font-semibold text-gray-700">Top 10 Stocks</h2>
-        <div className="overflow-x-auto mt-4">
-          <table className="min-w-full bg-white shadow-md rounded-lg">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="p-3 text-left">Symbol</th>
-                <th className="p-3 text-left">Price</th>
-                <th className="p-3 text-left">Change</th>
-              </tr>
-            </thead>
-            <tbody>
-              {topStocks.map((stock, index) => (
-                <tr key={index} className="border-b hover:bg-gray-100">
-                  <td className="p-3">{stock.symbol}</td>
-                  <td className="p-3">{stock.price}</td>
-                  <td className={`p-3 ${stock.change.includes("+") ? "text-green-500" : "text-red-500"}`}>
-                    {stock.change}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    return (
+        <div>
+            <h2>Stock List</h2>
+            <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "10px" }}>
+                <thead>
+                    <tr style={{ background: "#f4f4f4", textAlign: "left" }}>
+                        <th style={{ padding: "10px", border: "1px solid #ddd" }}>ID</th>
+                        <th style={{ padding: "10px", border: "1px solid #ddd" }}>Name</th>
+                        <th style={{ padding: "10px", border: "1px solid #ddd" }}>Price ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {stocks.length > 0 ? (
+                        stocks.map(stock => (
+                            <tr key={stock.id} style={{ borderBottom: "1px solid #ddd" }}>
+                                <td style={{ padding: "10px", border: "1px solid #ddd" }}>{stock.id}</td>
+                                <td style={{ padding: "10px", border: "1px solid #ddd" }}>{stock.name}</td>
+                                <td style={{ padding: "10px", border: "1px solid #ddd" }}>${parseFloat(stock.price).toFixed(2)}</td>
+                                </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="3" style={{ textAlign: "center", padding: "10px" }}>Loading stocks...</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
         </div>
-      </div>
-    </div>
-  );
-};
+    );
+}
+
+export default StockList;
