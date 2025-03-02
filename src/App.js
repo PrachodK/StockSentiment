@@ -1,24 +1,29 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
-import Home from "./pages/Home";
-import { MyStocks } from "./pages/MyStocks";
-import { StockLookup } from "./pages/StockLookup";
-import { Login } from "./pages/Login";
-import Signup from "./pages/Signup";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
+// Pages
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+import StocksPage from './pages/StocksPage';
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/mystocks" element={<MyStocks />} />
-        <Route path="/stocklookup" element={<StockLookup />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <div className="app-container">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/stocks" element={<StocksPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
