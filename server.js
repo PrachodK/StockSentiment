@@ -9,14 +9,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const SECRET_KEY = 'd78b55f52d630663946733d8eedd13b061840b0f909b271c078b019431223980';
+const SECRET_KEY = '';
 
 const db = mysql.createConnection({
-    host: 'mysql-26a2242-prachodkakatur-5610.d.aivencloud.com',
-    user: 'avnadmin',
-    password: 'AVNS_WPatHEVIhPvO4XBKquH',
-    database: 'defaultdb',
-    port: 14450,
+    host: '',
+    user: '',
+    password: '',
+    database: '',
+    port: 1,
     ssl: { rejectUnauthorized: false }
 });
 
