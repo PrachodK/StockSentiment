@@ -5,9 +5,9 @@ import Footer from './components/Footer';
 
 // Pages
 import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import StocksPage from './pages/StocksPage';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/stocks" element={<StocksPage />} />
           </Routes>

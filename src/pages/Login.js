@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export const Login = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,13 +22,37 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} required />
-        <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
-      </form>
+    <div className="center-container">
+      <div className="card" style={{ textAlign: "center", padding: "20px", maxWidth: "400px", margin: "auto" }}>
+        <h2>Login</h2>
+        <p>Welcome back! Please sign in to continue.</p>
+        <form onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            style={{ display: "block", margin: "10px auto", padding: "10px", width: "100%" }}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={{ display: "block", margin: "10px auto", padding: "10px", width: "100%" }}
+          />
+          <button type="submit" className="btn btn-green" style={{ width: "100%", padding: "10px" }}>
+            Login
+          </button>
+        </form>
+        <div style={{ marginTop: "20px" }}>
+          <button className="btn btn-red" style={{ width: "100%", padding: "10px", marginTop: "10px" }}>
+            Login with Google
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
+
+export default Login;
