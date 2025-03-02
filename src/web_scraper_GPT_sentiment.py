@@ -9,7 +9,7 @@ company = input("Enter what company you want results about: ").lower()
 valid = False
 
 # CHANGE TO CORRECT PATH
-with open("/content/sp_500_companies.csv", mode='r', newline='', encoding='utf-8') as file:
+with open("../assets/sp_500_companies.csv", mode='r', newline='', encoding='utf-8') as file:
   csv_reader = csv.reader(file)
   row = next(csv_reader, None)  # Get the first (and only) row if it exists
   if row and any(company in cell.lower() for cell in row):
