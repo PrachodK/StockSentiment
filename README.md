@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## IMPORTANT
+
+*To run the app you must write your own OpenAI API Key in the app.py file*
+
+*To run the app you must put your database information (hostname, username, password, port) into the server.js file*
+
 ## Available Scripts
 
 In the project directory, you can run:
