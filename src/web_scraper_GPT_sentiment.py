@@ -32,7 +32,7 @@ else:
 
 #####
 
-openai.api_key = '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'
+openai.api_key = ''
 
 response = openai.ChatCompletion.create(
     model="gpt-4o-mini",
