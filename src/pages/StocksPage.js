@@ -25,8 +25,13 @@ function StocksPage() {
 
   const handleSelectCompany = (company) => {
     setQuery(company);
-    setFilteredCompanies([]);
+  
+    setTimeout(() => {
+      setFilteredCompanies([]);
+    }, 20);
   };
+  
+  
 
   const handleSearch = async () => {
     setLoading(true);
@@ -69,6 +74,14 @@ function StocksPage() {
   };
 
   return (
+    <>
+    <div style={styles.topRight}>
+    <button onClick={() => window.history.back()} className="back-button">
+Back
+</button>
+
+    </div>
+
     <div style={styles.container}>
       <div style={styles.card}>
         <h2 style={styles.title}>📊 Stock Sentiment Analysis</h2>
@@ -78,6 +91,7 @@ function StocksPage() {
 
         <div style={styles.inputContainer}>
           <input
+            id="companyInput"
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -115,6 +129,7 @@ function StocksPage() {
         )}
       </div>
     </div>
+    </>
   );
 }
 

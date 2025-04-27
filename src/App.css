@@ -141,6 +141,24 @@ main {
   padding: 2rem;
   margin-bottom: 2rem;
 }
+.back-button {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #9167fb;
+  background: transparent;
+  color: #9167fb;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #9167fb;
+  color: white;
+}
 
 /* HEADINGS */
 h1, h2, h3 {
