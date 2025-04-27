@@ -3,11 +3,6 @@
 This project is a simple yet powerful **AI-powered stock sentiment tool**.  
 It allows users to search for **S&P 500 companies** and get quick **Buy**, **Sell**, or **Hold** recommendations based on **AI analysis of news articles**.
 
-## IMPORTANT
-
-- **You must add your own OpenAI API Key** in the `app.py` file.
-- **You must add your database information** (hostname, username, password, port) into the `server.js` file if using a database.
-
 ## Available Scripts
 
 In the project directory, you can run:
