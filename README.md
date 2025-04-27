@@ -1,76 +1,74 @@
-# Getting Started with Create React App
+📈 Stock Sentiment Analysis App
+This project is a simple yet powerful AI-powered stock sentiment tool.
+It allows users to search for S&P 500 companies and get quick Buy, Sell, or Hold recommendations based on AI analysis of news articles.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## IMPORTANT
-
-*To run the app you must put your own OpenAI API Key in the app.py file*
-
-*To run the app you must put your database information (hostname, username, password, port) into the server.js file*
-
-## Available Scripts
-
+Available Scripts
 In the project directory, you can run:
 
-### `npm start`
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
+The page will reload when you make changes.
 You may also see any lint errors in the console.
 
-### `npm test`
+npm test
+Launches the test runner in the interactive watch mode.
+See the section about running tests for more information.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
+npm run build
+Builds the app for production to the build folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
+The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm run eject
+Note: this is a one-way operation. Once you eject, you can't go back!
 
-### `npm run eject`
+🚀 Features
+Live search with autocomplete for S&P 500 companies.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+AI-driven sentiment analysis of latest company news.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Smart recommendations:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+BUY if very positive
+SELL if negative
+HOLD if neutral
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Responsive, clean design using custom CSS and Material UI.
 
-## Learn More
+Smooth loading states, error handling, and clean UX.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🛠 Tech Stack
+Frontend: React.js (Create React App)
+Backend: Flask (Python API)
+Styling: Custom CSS and Material UI
+AI: OpenAI API for sentiment extraction
+(Optional) Database setup via server.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+⚙ Setup Instructions
 
-### Code Splitting
+Clone the repository:
+bash
+Copy
+Edit
+git clone https://github.com/PrachodK/StockSentiment.git
+cd StockSentiment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Install frontend dependencies:
+nginx
+Copy
+Edit
+npm install
+Add your OpenAI API Key inside app.py.
 
-### Analyzing the Bundle Size
+(Optional) Configure your database in server.js.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Start the frontend server:
+sql
+Copy
+Edit
+npm start
+Start your backend Flask server separately.
