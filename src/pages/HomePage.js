@@ -13,12 +13,12 @@ function Homepage() {
   return (
     <div className='wrapper'>
       <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <Card className="fadeLeft" sx={{ position: 'absolute', zIndex: '1', animation: 'fadeLeft 1s', background: 'rgb(51, 65, 94)', marginTop: '11em', marginLeft: '10.1em', height: '250px', width: '28.5em', padding: '2px', display: 'inline-block', borderRadius: '20px'}}>
+        <Card className="fadeLeft" sx={{ position: 'absolute', zIndex: '1', animation: 'fadeLeft 1s', background: 'rgb(51, 65, 94)', marginTop: '11em', marginLeft: '10.1em', height: '210px', width: '28.5em', padding: '2px', display: 'inline-block', borderRadius: '20px'}}>
           <CardContent style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '1em'}}>
             <h1 
               style={{
                 fontFamily: "'Montserrat', sans-serif",
-                fontSize: '2.4rem',
+                fontSize: '2.0rem',
                 fontWeight: '600',
                 color: 'rgb(252, 252, 211)',
                 marginBottom: '0.6em',
@@ -58,7 +58,7 @@ function Homepage() {
         <h2 
           className="fadeUpText"
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Montserrat', sans-serif",
             fontSize: '8vh',
             fontWeight: '700',
             color: 'rgb(151, 239, 210)',
